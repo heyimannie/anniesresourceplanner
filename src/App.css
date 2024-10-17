@@ -1,27 +1,41 @@
-.dashboard {
+.App {
+  text-align: center;
   display: flex;
-  margin: 50px 20px;
+  flex-direction: column;
 }
 
-.new-project-box,
-.resource-box,
-.large-box {
-  border: 1px solid #b43434;
+.create-new-project {
+  width: 100%;
   padding: 20px;
-  margin: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
 }
 
-.new-project-box {
+.main-content {
+  display: flex;
   flex: 1;
+  padding: 20px;
 }
 
-.resource-box {
-  flex: 1;
-}
-
-.large-box {
+.bar-chart {
   flex: 2;
-  background-color: #ffffff;
-  min-height: 300px;
+  padding-right: 20px;
+}
+
+.resources {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resource-fte-box {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+}
+
+.bar-chart-placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: #ddd;
 }
