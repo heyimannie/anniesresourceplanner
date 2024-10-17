@@ -6,8 +6,6 @@ import BarChart from './components/BarChart';
 
 function App() {
 
-  <h1>THIS IS A RESOURCE PLANNER</h1>
-
   const [data, setData] = useState({
     projects: [
       {
@@ -27,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>THIS IS A RESOURCE PLANNER</h1>
       <CreateNewProject addProject={addProject} />
       <div className="main-content">
         <div className="bar-chart">
