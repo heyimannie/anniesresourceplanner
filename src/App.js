@@ -5,6 +5,9 @@ import {ResourceFTEBox} from './components/ResourceFTEBox/ResourceFTEBox';
 import BarChart from './components/BarChart';
 
 function App() {
+
+  <h1>THIS IS A RESOURCE PLANNER</h1>
+
   const [data, setData] = useState({
     projects: [
       {
