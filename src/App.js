@@ -8,12 +8,7 @@ function App() {
 
   const [data, setData] = useState({
     projects: [
-      {
-        name: 'project 1', fte: 0.0
-      },
-      {
-        name: 'project B', fte: 0.0
-      }
+   
     ],
     resources: [{name: 'Resource Name', projects: [{name: 'test'}]}, {name: 'Resource Name', projects: [{name: 'test'}]}]
   });

@@ -10,7 +10,7 @@ export const ResourceFTEBox = ({ projects, resource }) => {
         type="text"
         placeholder="Resource Name"
         value={resource.name}
-        onChange={(e) => {}}
+        onChange={(e) => {resource.name = e.target.value}}
       />
       <input
         type="color"
