@@ -4,9 +4,17 @@ const ResourceFTEBox = ({ projects }) => {
   const [resourceName, setResourceName] = useState('');
   const [selectedProject, setSelectedProject] = useState('');
   const [color, setColor] = useState('#000000');
+  const [fte, setFte] = useState(0);
 
   const handleUpdate = () => {
-    console.log({ resourceName, selectedProject, color });
+    console.log({ resourceName, selectedProject, color, fte });
+  };
+
+  const handleFteChange = (e) => {
+    const value = parseFloat(e.target.value);
+    if (value >= 0 && value <= 1) {
+      setFte(value);
+    }
   };
 
   return (
@@ -33,9 +41,4 @@ const ResourceFTEBox = ({ projects }) => {
         value={color}
         onChange={(e) => setColor(e.target.value)}
       />
-      <button onClick={handleUpdate}>Update</button>
-    </div>
-  );
-};
-
-export default ResourceFTEBox;
+      <label htmlFor={`fte-${resourceName}`}>FTE</label
