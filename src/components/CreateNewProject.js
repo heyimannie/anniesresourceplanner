@@ -2,21 +2,11 @@ import React, { useState } from 'react';
 
 const CreateNewProject = ({ addProject }) => {
   const [projectName, setProjectName] = useState('');
-  const [fte, setFte] = useState(0);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (projectName && fte > 0) {
-      addProject(projectName, fte);
-      setProjectName('');
-      setFte(0);
-    }
-  };
+  const [reqFte, setReqFte] = useState(0.0);
 
   return (
     <div className="create-new-project">
       <h3>Create New Project</h3>
-      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Project Name"
@@ -25,12 +15,11 @@ const CreateNewProject = ({ addProject }) => {
         />
         <input
           type="number"
-          placeholder="FTE"
-          value={fte}
-          onChange={(e) => setFte(e.target.value)}
+          placeholder="Required Total FTE"
+          value={reqFte}
+          onChange={(e) => setReqFte(e.target.valueAsNumber)}
         />
-        <button type="submit">Submit</button>
-      </form>
+        <button type="submit" onClick={() => addProject(projectName, reqFte)}>Submit</button>
     </div>
   );
 };
