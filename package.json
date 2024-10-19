@@ -4,6 +4,7 @@
   "homepage": "https://heyimannie.github.io/anniesresourceplanner",
   "private": true,
   "dependencies": {
+    "@fluentui/react-components": "^9.55.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
