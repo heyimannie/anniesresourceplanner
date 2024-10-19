@@ -35,7 +35,7 @@ export const ResourceFTEBox = ({
                 resourceIndex,
                 resource.name,
                 e.target.value,
-                projects
+                resource.projects
               )
             }
           />
@@ -48,7 +48,7 @@ export const ResourceFTEBox = ({
                 resourceIndex,
                 e.target.value,
                 resource.color,
-                projects
+                resource.projects
               );
             }}
             style={{ marginLeft: "10px", width: "270px" }}
