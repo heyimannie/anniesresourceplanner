@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ProjectInput } from "./ProjectInputs";
-import { Input, Button } from "@fluentui/react-components";
+import { Input, Button, Card } from "@fluentui/react-components";
 
 export const ResourceFTEBox = ({
   projects,
@@ -8,7 +8,6 @@ export const ResourceFTEBox = ({
   updateResource,
   resourceIndex,
 }) => {
-  const [color, setColor] = useState("#000000");
   const [resourceProjects, setResourceProjects] = useState(resource.projects);
 
   const updateResourceProjects = (projectIndex, name, fte) => {
@@ -16,33 +15,54 @@ export const ResourceFTEBox = ({
 
     updatedProjects[projectIndex] = { name, fte };
 
-    console.log("updatedProjects", updatedProjects);
     setResourceProjects(updatedProjects);
-    updateResource(resourceIndex, resource.name, updatedProjects);
+    updateResource(
+      resourceIndex,
+      resource.name,
+      resource.color,
+      updatedProjects
+    );
   };
-  console.log(resource);
   return (
-    <div className="resource-fte-box">
-      <Input
-        type="text"
-        placeholder="Resource Name"
-        value={resource.name}
-        onChange={(e) => {
-          updateResource(resourceIndex, e.target.value, projects);
-        }}
-      />
-      <input
-        type="color"
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-      />
-      <Button
-        onClick={() => {
-          setResourceProjects([...resourceProjects, {}]);
-        }}
-      >
-        Add project
-      </Button>
+    <Card style={{ padding: "5px" }}>
+      <div style={{ display: "flex", "justify-content": "space-between" }}>
+        <div>
+          <Input
+            type="color"
+            value={resource.color}
+            onChange={(e) =>
+              updateResource(
+                resourceIndex,
+                resource.name,
+                e.target.value,
+                projects
+              )
+            }
+          />
+          <Input
+            type="text"
+            placeholder="Resource Name"
+            value={resource.name}
+            onChange={(e) => {
+              updateResource(
+                resourceIndex,
+                e.target.value,
+                resource.color,
+                projects
+              );
+            }}
+            style={{ marginLeft: "10px", width: "270px" }}
+          />
+        </div>
+        <Button
+          onClick={() => {
+            setResourceProjects([...resourceProjects, { fte: 0 }]);
+          }}
+          style={{ marginLeft: "10px" }}
+        >
+          Add project
+        </Button>
+      </div>
       {resourceProjects.map((project, index) => (
         <ProjectInput
           project={project}
@@ -52,6 +72,6 @@ export const ResourceFTEBox = ({
           updateResourceProjects={updateResourceProjects}
         />
       ))}
-    </div>
+    </Card>
   );
 };

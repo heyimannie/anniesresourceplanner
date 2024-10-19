@@ -6,7 +6,7 @@ const CreateNewProject = ({ addProject }) => {
   const [reqFte, setReqFte] = useState(0.0);
 
   return (
-    <div className="create-new-project">
+    <div>
       <h3>Create New Project</h3>
       <Input
         type="text"

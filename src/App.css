@@ -4,11 +4,11 @@
   flex-direction: column;
 }
 
-.create-new-project {
+/* .create-new-project {
   width: 100%;
   padding: 10px;
   background-color: #f0f0f0;
-}
+} */
 
 /* input {
   margin-bottom: 15px;
@@ -23,13 +23,6 @@
 .bar-chart {
   flex: 2;
   padding-right: 20px;
-}
-
-.bar-chart-container {
-  /* width: 100%; */
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
 }
 
 .bars {

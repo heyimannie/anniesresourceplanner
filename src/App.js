@@ -6,42 +6,57 @@ import BarChart from "./components/BarChart";
 
 import {
   FluentProvider,
-  webLightTheme,
+  teamsDarkTheme,
   Button,
+  Card,
 } from "@fluentui/react-components";
 
 function App() {
+  const randomColor = () =>
+    `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   const [projects, setProjects] = useState([]);
   const [resources, setResources] = useState([
-    { name: "test name", projects: [{ name: "test", fte: 1 }] },
+    {
+      name: "Foo Bar",
+      color: randomColor(),
+      projects: [],
+    },
   ]);
+  // const [resourcesFixed, setResourcesFixed] = useState({});
 
   const addProject = (name, fte) => {
     setProjects([...projects, { name, fte }]);
   };
 
   const addResource = () => {
-    setResources([...resources, { name: "", projects: [] }]);
+    setResources([
+      ...resources,
+      {
+        name: "",
+        color: randomColor(),
+        projects: [],
+      },
+    ]);
+    console.log(resources);
   };
 
-  const updateResource = (index, name, projects) => {
+  const updateResource = (index, name, color, projects) => {
     const updatedResources = [...resources];
 
-    updatedResources[index] = { name, projects };
-    console.log(updatedResources);
+    updatedResources[index] = { name, color, projects };
     setResources(updatedResources);
   };
 
   return (
-    <FluentProvider theme={webLightTheme}>
+    <FluentProvider theme={teamsDarkTheme}>
       <div className="App">
         <h1>THIS IS A RESOURCE PLANNER</h1>
         <CreateNewProject addProject={addProject} />
         <div className="main-content">
           <div className="bar-chart">
-            <BarChart projects={projects} />
+            <BarChart projects={projects} resources={resources} />
           </div>
-          <div className="resources">
+          <Card>
             <h3>Resources</h3>
             <Button onClick={addResource}>Add new resource</Button>
             {resources.map((resource, index) => (
@@ -53,7 +68,7 @@ function App() {
                 resourceIndex={index}
               />
             ))}
-          </div>
+          </Card>
         </div>
       </div>
     </FluentProvider>

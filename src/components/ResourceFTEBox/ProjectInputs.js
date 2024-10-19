@@ -1,5 +1,12 @@
 import React from "react";
-import { Input, Dropdown, Option, useId } from "@fluentui/react-components";
+import {
+  Input,
+  Button,
+  Dropdown,
+  Option,
+  useId,
+} from "@fluentui/react-components";
+import { DeleteRegular } from "@fluentui/react-icons";
 
 export const ProjectInput = ({
   project,
@@ -8,18 +15,6 @@ export const ProjectInput = ({
   index,
 }) => {
   const dropdownId = useId("dropdown-default");
-  const options = [
-    "Cat",
-    "Caterpillar",
-    "Corgi",
-    "Chupacabra",
-    "Dog",
-    "Ferret",
-    "Fish",
-    "Fox",
-    "Hamster",
-    "Snake",
-  ];
 
   return (
     <div className="resource-fte-inputs">
@@ -37,12 +32,16 @@ export const ProjectInput = ({
 
       <Input
         type="number"
-        placeholder="Proposed FTE"
+        placeholder="FTE"
         value={project.fte}
         onChange={(e) => {
-          updateResourceProjects(index, project.name, e.target.value);
+          updateResourceProjects(index, project.name, e.target.valueAsNumber);
         }}
+        style={{ width: "75px", marginLeft: "10px" }}
       />
+      <Button style={{ marginLeft: "10px" }}>
+        <DeleteRegular />
+      </Button>
     </div>
   );
 };
