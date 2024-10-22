@@ -32,6 +32,7 @@
 .bar-wrapper {
   display: flex;
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 .bar {
@@ -63,10 +64,4 @@
 .resource-fte-inputs {
   display: flex;
   justify-content: space-between;
-}
-
-.bar-chart-placeholder {
-  width: 100%;
-  height: 400px;
-  background-color: #ddd;
 }
