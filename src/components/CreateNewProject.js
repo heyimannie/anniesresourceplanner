@@ -3,7 +3,7 @@ import { Input, Button } from "@fluentui/react-components";
 
 const CreateNewProject = ({ addProject }) => {
   const [projectName, setProjectName] = useState("");
-  const [reqFte, setReqFte] = useState(0.0);
+  const [reqFte, setReqFte] = useState(1.0);
 
   return (
     <div>
@@ -18,7 +18,11 @@ const CreateNewProject = ({ addProject }) => {
         type="number"
         placeholder="Required Total FTE"
         value={reqFte}
-        onChange={(e) => setReqFte(e.target.valueAsNumber)}
+        onChange={(e) => {
+          if (e.target.valueAsNumber > 0 || isNaN(e.target.valueAsNumber)) {
+            setReqFte(e.target.valueAsNumber);
+          }
+        }}
       />
       <Button type="submit" onClick={() => addProject(projectName, reqFte)}>
         Submit

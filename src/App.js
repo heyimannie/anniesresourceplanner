@@ -15,14 +15,7 @@ function App() {
   const randomColor = () =>
     `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   const [projects, setProjects] = useState([]);
-  const [resources, setResources] = useState([
-    {
-      name: "Foo Bar",
-      color: randomColor(),
-      projects: [],
-    },
-  ]);
-  // const [resourcesFixed, setResourcesFixed] = useState({});
+  const [resources, setResources] = useState([]);
 
   const addProject = (name, fte) => {
     setProjects([...projects, { name, fte }]);
@@ -37,7 +30,6 @@ function App() {
         projects: [],
       },
     ]);
-    console.log(resources);
   };
 
   const updateResource = (index, name, color, projects) => {
@@ -56,7 +48,7 @@ function App() {
           <div className="bar-chart">
             <BarChart projects={projects} resources={resources} />
           </div>
-          <Card>
+          <Card style={{ minWidth: "35%" }}>
             <h3>Resources</h3>
             <Button onClick={addResource}>Add new resource</Button>
             {resources.map((resource, index) => (
