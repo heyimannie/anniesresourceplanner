@@ -30,22 +30,21 @@
 }
 
 .bar-wrapper {
+  display: flex;
   margin-bottom: 10px;
 }
 
 .bar {
   height: 30px;
+  border-radius: 4px;
   position: relative;
   background-color: #ccc;
   transition: width 0.3s ease-in-out;
-}
-
-.bar-label {
-  position: absolute;
-  left: 10px;
-  top: 5px;
-  color: #000;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+  border: 1px solid #666666;
 }
 
 .resources {
@@ -63,6 +62,7 @@
 
 .resource-fte-inputs {
   display: flex;
+  justify-content: space-between;
 }
 
 .bar-chart-placeholder {

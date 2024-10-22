@@ -1,5 +1,6 @@
 import React from "react";
-import { Card } from "@fluentui/react-components";
+import { Card, Button, Label } from "@fluentui/react-components";
+import { DeleteRegular } from "@fluentui/react-icons";
 
 const BarChart = ({ projects, resources }) => {
   if (projects.length === 0) return <Card>No projects to display</Card>;
@@ -33,14 +34,20 @@ const BarChart = ({ projects, resources }) => {
                 className="bar"
                 style={{
                   width: `${barWidth}%`,
-                  backgroundImage: `linear-gradient(90deg, green ${fillPercent}%, red ${fillPercent}%)`,
+                  backgroundImage: `linear-gradient(90deg, #107c10 ${fillPercent}%, #3d3d3d
+                    ${fillPercent}%)`,
                 }}
               >
-                <span className="bar-label">
-                  {project.name}: {project.fte}:{" "}
+                <Label>{project.name}</Label>
+                <Label>
                   {projectsFixed[project.name].fteCommitted}
-                </span>
+                  {" / "}
+                  {project.fte}
+                </Label>
               </div>
+              <Button style={{ marginLeft: "10px" }}>
+                <DeleteRegular />
+              </Button>
             </div>
           );
         })}

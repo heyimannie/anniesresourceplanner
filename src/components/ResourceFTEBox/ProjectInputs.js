@@ -35,9 +35,11 @@ export const ProjectInput = ({
         placeholder="FTE"
         value={project.fte}
         onChange={(e) => {
-          updateResourceProjects(index, project.name, e.target.valueAsNumber);
+          if (e.target.valueAsNumber >= 0 || isNaN(e.target.valueAsNumber)) {
+            updateResourceProjects(index, project.name, e.target.valueAsNumber);
+          }
         }}
-        style={{ width: "75px", marginLeft: "10px" }}
+        style={{ width: "60px", marginLeft: "5px" }}
       />
       <Button style={{ marginLeft: "10px" }}>
         <DeleteRegular />
