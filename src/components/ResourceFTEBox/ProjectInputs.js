@@ -12,6 +12,7 @@ export const ProjectInput = ({
   project,
   projects,
   updateResourceProjects,
+  deleteResourceProject,
   index,
 }) => {
   const dropdownId = useId("dropdown-default");
@@ -41,7 +42,10 @@ export const ProjectInput = ({
         }}
         style={{ width: "60px", marginLeft: "5px" }}
       />
-      <Button style={{ marginLeft: "10px" }}>
+      <Button
+        style={{ marginLeft: "10px" }}
+        onClick={() => deleteResourceProject(index)}
+      >
         <DeleteRegular />
       </Button>
     </div>

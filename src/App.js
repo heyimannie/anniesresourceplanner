@@ -21,6 +21,11 @@ function App() {
     setProjects([...projects, { name, fte }]);
   };
 
+  const deleteProject = (name) => {
+    const updatedProjects = projects.filter((project) => project.name !== name);
+    setProjects(updatedProjects);
+  };
+
   const addResource = () => {
     setResources([
       ...resources,
@@ -46,7 +51,11 @@ function App() {
         <CreateNewProject addProject={addProject} />
         <div className="main-content">
           <div className="bar-chart">
-            <BarChart projects={projects} resources={resources} />
+            <BarChart
+              projects={projects}
+              resources={resources}
+              deleteProject={deleteProject}
+            />
           </div>
           <Card style={{ minWidth: "35%" }}>
             <h3>Resources</h3>
