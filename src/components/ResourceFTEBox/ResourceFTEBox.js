@@ -23,6 +23,18 @@ export const ResourceFTEBox = ({
       updatedProjects
     );
   };
+
+  const deleteResourceProject = (projectIndex) => {
+    const updatedProjects = [...resourceProjects];
+    updatedProjects.splice(projectIndex, 1);
+    setResourceProjects(updatedProjects);
+    updateResource(
+      resourceIndex,
+      resource.name,
+      resource.color,
+      updatedProjects
+    );
+  };
   return (
     <Card style={{ padding: "5px" }}>
       <div style={{ display: "flex", "justify-content": "space-between" }}>
@@ -70,6 +82,7 @@ export const ResourceFTEBox = ({
           key={index}
           index={index}
           updateResourceProjects={updateResourceProjects}
+          deleteResourceProject={deleteResourceProject}
         />
       ))}
     </Card>
